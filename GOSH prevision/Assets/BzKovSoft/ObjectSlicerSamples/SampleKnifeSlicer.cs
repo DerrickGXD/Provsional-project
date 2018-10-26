@@ -47,12 +47,13 @@ namespace BzKovSoft.ObjectSlicerSamples
 			transformB.position = Camera.main.transform.position;
 			transformB.rotation = Camera.main.transform.rotation;
 
-			const float seconds = 0.5f;
+			const float seconds = 2.0f;
 			for (float f = 0f; f < seconds; f += Time.deltaTime)
 			{
 				float aY = (f / seconds) * 180 - 90;
 				float aX = (f / seconds) * 60 - 30;
                 //float aX = 0;
+                
                 var r = Quaternion.Euler(0, 0, 0);
 
                 if(cutID == 1)
