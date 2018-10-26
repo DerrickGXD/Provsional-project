@@ -9,13 +9,18 @@ namespace BzKovSoft.ObjectSlicerSamples
 
 		private float yaw = 0f;
 		private float pitch = 0f;
+        public GameObject cameraRotator;
 
-		void Update()
+        void Update()
 		{
 			var camera = Camera.main.gameObject.transform;
-
 			Vector3 move = Vector3.zero;
-			if (Input.GetKey(KeyCode.W))
+            Vector3 relativePos = camera.position;
+            Debug.Log(camera.position);
+
+
+            transform.Rotate(0.0f, -Input.GetAxis("Horizontal") * 1, 0.0f);
+            if (Input.GetKey(KeyCode.W))
 				move += MoveSpeed / 100f * Vector3.forward;
 			if (Input.GetKey(KeyCode.S))
 				move += MoveSpeed / 100f * Vector3.back;
@@ -27,8 +32,23 @@ namespace BzKovSoft.ObjectSlicerSamples
 				move += MoveSpeed / 100f * Vector3.down;
 			if (Input.GetKey(KeyCode.E))
 				move += MoveSpeed / 100f * Vector3.up;
+            if (Input.GetKey(KeyCode.F)){
+                cameraRotator.transform.Rotate(0,1,0);
+            }
+            if (Input.GetKey(KeyCode.H))
+            {
+                cameraRotator.transform.Rotate(0, -1, 0);
+            }
+            if (Input.GetKey(KeyCode.T))
+            {
+                cameraRotator.transform.Rotate(1, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.G))
+            {
+                cameraRotator.transform.Rotate(-1, 0, 0);
+            }
 
-			if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift))
 				move *= 5;
 
 			if (Mathf.Abs(move.sqrMagnitude) > Mathf.Epsilon)
