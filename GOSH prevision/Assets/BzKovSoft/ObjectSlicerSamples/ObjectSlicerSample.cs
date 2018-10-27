@@ -47,20 +47,28 @@ namespace BzKovSoft.ObjectSlicerSamples
 
 			// on sliced, get data that we saved in 'PrepareData' method
 			var addData = (ResultData)result.addData;
+            slicenumber += 1;
 			addData.stopwatch.Stop();
-			drawText += gameObject.name +
-				". VertCount: " + addData.vertexCount.ToString() + ". ms: " +
-				addData.stopwatch.ElapsedMilliseconds.ToString() + Environment.NewLine;
-
-			if (drawText.Length > 1500) // prevent very long text
-				drawText = drawText.Substring(drawText.Length - 1000, 1000);
+            String[] cutType = new string[] { "Downwards", "Upwards", "Right Down", "Left Down", "Rightwards", "Leftwards" };
+            
+            drawText += "Slice Type: " + cutType[SampleKnifeSlicer.cutID-1] +
+				". Slice Number: " + slicenumber + ". Pressure: " +
+				(SampleKnifeSlicer.cutSpeed*0.5256f) + '\n';
+         
+			if(drawText.Split('\n').Length > 4)
+            {
+                drawText = drawText.Substring(drawText.IndexOf('\n') + 1);
+            }
 		}
 
-		static string drawText = "-";
+        static int cutID;
+        static int slicenumber = 0;
+		static string drawText = "";
 
 		void OnGUI()
 		{
-			GUI.Label(new Rect(10, 10, 2000, 2000), drawText);
+            GUI.contentColor = Color.black;
+            GUI.Label(new Rect(10, 10, 2000, 2000), drawText);
 		}
 
 		// DTO that we pass to slicer and then receive back

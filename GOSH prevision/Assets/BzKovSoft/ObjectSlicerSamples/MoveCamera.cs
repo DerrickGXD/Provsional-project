@@ -28,9 +28,9 @@ namespace BzKovSoft.ObjectSlicerSamples
 			if (Input.GetKey(KeyCode.D))
 				move += MoveSpeed / 100f * Vector3.right;
 			if (Input.GetKey(KeyCode.Q))
-				move += MoveSpeed / 100f * Vector3.down;
-			if (Input.GetKey(KeyCode.E))
 				move += MoveSpeed / 100f * Vector3.up;
+			if (Input.GetKey(KeyCode.E))
+				move += MoveSpeed / 100f * Vector3.down;
             if (Input.GetKey(KeyCode.F)){
                 cameraRotator.transform.Rotate(0,1,0);
             }

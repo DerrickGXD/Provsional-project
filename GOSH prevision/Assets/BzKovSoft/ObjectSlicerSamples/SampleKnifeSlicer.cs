@@ -3,6 +3,7 @@ using BzKovSoft.ObjectSlicer;
 using System.Diagnostics;
 using System;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace BzKovSoft.ObjectSlicerSamples
 {
@@ -15,7 +16,10 @@ namespace BzKovSoft.ObjectSlicerSamples
 		[SerializeField]
 		private GameObject _blade;
 #pragma warning restore 0649
-        private int cutID = 1;
+        public static int cutID = 1;
+
+        public static int cutSpeed = 50;
+        public Text knifeText;
 
         void Update()
 		{
@@ -31,6 +35,26 @@ namespace BzKovSoft.ObjectSlicerSamples
                 cutID = 5;
             if (Input.GetKey(KeyCode.Alpha6))
                 cutID = 6;
+            
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                cutSpeed += 1;
+                if (cutSpeed > 100)
+                    cutSpeed = 100;
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                cutSpeed -= 1;
+                if (cutSpeed < 0)
+                    cutSpeed = 0;
+            }
+
+            if(knifeText!= null)
+                knifeText.text = "Knife Speed: " + cutSpeed;
+
+
 
             if (Input.GetKey(KeyCode.Space))
 			{
@@ -47,7 +71,7 @@ namespace BzKovSoft.ObjectSlicerSamples
 			transformB.position = Camera.main.transform.position;
 			transformB.rotation = Camera.main.transform.rotation;
 
-			const float seconds = 2.0f;
+			float seconds = 100.0f / cutSpeed;
 			for (float f = 0f; f < seconds; f += Time.deltaTime)
 			{
 				float aY = (f / seconds) * 180 - 90;
