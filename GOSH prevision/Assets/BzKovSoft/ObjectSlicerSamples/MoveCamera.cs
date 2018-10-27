@@ -16,7 +16,6 @@ namespace BzKovSoft.ObjectSlicerSamples
 			var camera = Camera.main.gameObject.transform;
 			Vector3 move = Vector3.zero;
             Vector3 relativePos = camera.position;
-            Debug.Log(camera.position);
 
 
             transform.Rotate(0.0f, -Input.GetAxis("Horizontal") * 1, 0.0f);
