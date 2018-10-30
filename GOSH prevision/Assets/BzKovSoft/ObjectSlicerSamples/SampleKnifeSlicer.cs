@@ -40,6 +40,12 @@ namespace BzKovSoft.ObjectSlicerSamples
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 cutSpeed += 1;
+                if (knifeText != null)
+                {
+                    knifeText.color = Color.black;
+                    ChangeSprite.colorcode = 0;
+                }
+                    
                 if (cutSpeed > 100)
                     cutSpeed = 100;
             }
@@ -47,6 +53,13 @@ namespace BzKovSoft.ObjectSlicerSamples
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 cutSpeed -= 1;
+                if (knifeText != null)
+                {
+                    knifeText.color = Color.black;
+                    ChangeSprite.colorcode = 0;
+
+                }
+                    
                 if (cutSpeed < 0)
                     cutSpeed = 0;
             }

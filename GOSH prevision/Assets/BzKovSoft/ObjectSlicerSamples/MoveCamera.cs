@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BzKovSoft.ObjectSlicerSamples
 {
@@ -49,6 +50,11 @@ namespace BzKovSoft.ObjectSlicerSamples
 
             if (Input.GetKey(KeyCode.LeftShift))
 				move *= 5;
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
 
 			if (Mathf.Abs(move.sqrMagnitude) > Mathf.Epsilon)
 				camera.Translate(move, Space.Self);
