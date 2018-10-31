@@ -9,7 +9,6 @@ public class SetDrag : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = this.gameObject.GetComponent<Rigidbody>();
-        
     }
 	
 	// Update is called once per frame

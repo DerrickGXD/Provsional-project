@@ -109,6 +109,8 @@
     <Compile Include="Assets\BzKovSoft\ObjectSlicerSamples\SampleMouseSlicer.cs" />
     <Compile Include="Assets\ChangeColour.cs" />
     <Compile Include="Assets\ChangeSprite.cs" />
+    <Compile Include="Assets\EmissionOnDrag.cs" />
+    <Compile Include="Assets\LiverDetail.cs" />
     <Compile Include="Assets\mouseDrag.cs" />
     <Compile Include="Assets\OR_Room\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
     <Compile Include="Assets\OR_Room\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />

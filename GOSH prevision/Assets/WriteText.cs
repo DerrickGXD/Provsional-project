@@ -39,16 +39,18 @@ public class WriteText : MonoBehaviour {
             
 	}
 
+
     IEnumerator showInstruction()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         instructionCanvas.SetActive(true);
         StartCoroutine(incrementText(instruction, 1, true));
     }
 
     IEnumerator incrementText(string stringwelcome, int canvasID, bool newLine)
     {
-        if(canvasID == 0)
+        yield return new WaitForSeconds(2f);
+        if (canvasID == 0)
         {
             canvasTextString = "";
         }

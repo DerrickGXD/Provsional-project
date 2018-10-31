@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 namespace BzKovSoft.ObjectSlicerSamples
 {
 	public class MoveCamera : MonoBehaviour
@@ -11,6 +12,7 @@ namespace BzKovSoft.ObjectSlicerSamples
 		private float yaw = 0f;
 		private float pitch = 0f;
         public GameObject cameraRotator;
+        public static int mouseMode = 0;
 
         void Update()
 		{
@@ -53,8 +55,32 @@ namespace BzKovSoft.ObjectSlicerSamples
 
             if (Input.GetKey(KeyCode.Escape))
             {
+                WriteText.canvasTextString = "";
+                WriteText.instructionTextString = "";
+                ChangeSprite.colorcode = 0;
+           
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
             }
+
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                
+                if(mouseMode == 0)
+                {
+                    mouseMode = 1;
+                    mouseDrag.mouseMode = 1;
+                }
+                else
+                {
+                    mouseMode = 0;
+                    mouseDrag.mouseMode = 0;
+                }
+
+
+               
+            }
+
 
 			if (Mathf.Abs(move.sqrMagnitude) > Mathf.Epsilon)
 				camera.Translate(move, Space.Self);

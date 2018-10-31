@@ -20,6 +20,7 @@ namespace BzKovSoft.ObjectSlicerSamples
 
         public static int cutSpeed = 50;
         public Text knifeText;
+        public Text mouseText;
 
         void Update()
 		{
@@ -66,6 +67,19 @@ namespace BzKovSoft.ObjectSlicerSamples
 
             if(knifeText!= null)
                 knifeText.text = "Knife Speed: " + cutSpeed;
+
+            if(mouseText!= null)
+            {
+                if(MoveCamera.mouseMode == 0)
+                {
+                    mouseText.text = "MOUSE : Drag Mode";
+                }
+                else
+                {
+                    mouseText.text = "MOUSE : Info Mode";
+                }
+            }
+                
 
 
 

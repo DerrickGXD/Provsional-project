@@ -53,12 +53,15 @@ namespace BzKovSoft.ObjectSlicerSamples
             int highEnd = lowEnd + 30;
             string comment = "";
 
-            if(SampleKnifeSlicer.cutSpeed>= lowEnd && SampleKnifeSlicer.cutSpeed <= highEnd)
+            
+         
+
+            if (SampleKnifeSlicer.cutSpeed>= lowEnd && SampleKnifeSlicer.cutSpeed <= highEnd)
             {
                 ChangeSprite.colorcode = 1;
-                panel.color = new Color(0.0f / 255, 232.0f / 255, 34.0f / 255, 100.0f/255);
+                panel.color = new Color(0.0f / 255, 232.0f / 255, 34.0f / 255, 100.0f / 255);
                 comment = "GOOD SPEED :)";
-                knifeSpeedUI.color = new Color(0.0f/255,232.0f/255,34.0f/255);
+                knifeSpeedUI.color = new Color(0.0f / 255, 232.0f / 255, 34.0f / 255, 100.0f / 255);
             }
             else
             {
@@ -71,10 +74,10 @@ namespace BzKovSoft.ObjectSlicerSamples
                 }
                 else
                 {
-                    ChangeSprite.colorcode = 3;
-                    panel.color = new Color(106.0f / 255, 163.0f / 255, 255.0f / 255, 100.0f / 255);
+                    ChangeSprite.colorcode = 3; 
+                    panel.color = new Color(0.0f / 255, 46.0f / 255, 221.0f / 255, 100.0f / 255);
                     comment = "TOO FAST :(";
-                    knifeSpeedUI.color = new Color(106.0f/255,163.0f/255,255.0f/255);
+                    knifeSpeedUI.color = new Color(0.0f / 255, 46.0f / 255, 221.0f / 255, 100.0f / 255);
                 }
             }
 
